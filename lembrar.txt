@@ -1,6 +1,0 @@
-sudo npm install -g budo
-npm install signalhub --save
-
-executar:
-npm run signalhub
-npm start
