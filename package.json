@@ -1,0 +1,19 @@
+{
+  "name": "signalhub-enviar-p2p",
+  "version": "1.0.0",
+  "description": "signalhub para enviar dados as pontas",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo index.js:bundle.js",
+    "signalhub": "signalhub listen -p 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "savio777",
+  "license": "MIT",
+  "devDependencies": {
+    "budo": "^11.6.1"
+  },
+  "dependencies": {
+    "signalhub": "^4.9.0"
+  }
+}
