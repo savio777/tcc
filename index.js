@@ -1,6 +1,3 @@
-// https://github.com/shama/letswritecode/tree/master/simple-p2p-with-webrtc
-// https://github.com/shama/letswritecode/tree/master/p2p-video-chat-webrtc
-
 const signalhub = require('signalhub')
 
 const hub = signalhub('my-app', ['http://localhost:8080'])
