@@ -5,8 +5,7 @@
   "main": "main.js",
   "dependencies": {
     "crypto-js": "^3.1.9-1",
-    "elliptic": "^6.4.1",
-    "express": "^4.16.4"
+    "elliptic": "^6.4.1"
   },
   "devDependencies": {},
   "scripts": {
