@@ -7,22 +7,6 @@ const ec = EC('secp256k1')
 // gerador de chaves
 const key = ec.genKeyPair()
 
-module.exports = class KeyGenerator{
-    
-    // gerador de chaves publicas 
-    publickKey(){
-        return key.getPublic('hex') 
-    }
+console.log('chave publica: ' + key.getPublic('hex') + "\n")
 
-
-    // gerador de chaves privadas
-    privateKey(){
-        return key.getPrivate('hex')
-    }
-
-}
-
-
-//console.log('chave publica: ' + publickKey + "\n")
-
-//console.log('chave privada: ' + privateKey)
+console.log('chave privada: ' + key.getPrivate('hex'))
