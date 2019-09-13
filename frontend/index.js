@@ -7,15 +7,17 @@ const Blockchain = require('../blockchain/blockchain')
 
 const chain = new Blockchain()
 
-hub.subscribe('update').on('data', (data) => {
-    document.getElementById('chain').textContent = data
+hub.subscribe('chain').on('data', (data) => {
+    chain.addBlock(new Block(new Date(), data.data, data.publicKey))
 
+    document.getElementById('chain').textContent = JSON.stringify(chain, null, 2)
 })
 
 document.getElementById('save').addEventListener('click', () => {
-    const publicKey = document.getElementById('publicKey').value
+    const data = {
+        data: document.getElementById('data').value,
+        publicKey: document.getElementById('publicKey').value
+    }
 
-    chain.addBlock(new Block(new Date(), document.getElementById('data').value, publicKey))
-
-    hub.broadcast('update', JSON.stringify(chain, null, 2))
+    hub.broadcast('chain', data)
 })
