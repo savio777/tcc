@@ -11,7 +11,7 @@ module.exports = class BlockChain {
     // função para retornar um novo bloco, o primeiro bloco deve ser inserido manualmente na corrente, 
     //  os outros serão automaticos
     createGenesisBlock() {
-        return new Block(0, 0, 'genesis_block', '0', '0')
+        return new Block("08/11/1997", 0, 'genesis_block', '0', '0')
     }
 
     // função para retornar o ultimo bloco da corrente

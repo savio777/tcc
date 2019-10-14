@@ -14,10 +14,13 @@ const keyPrivate = key.getPrivate('hex')
 console.log(`chave pública~> ${keyPublic}`)
 console.log(`chave privada~> ${keyPrivate}\n`)
 
+// será a chave inserida pelo usuario
 const keyLoggedPrivate = ec.keyFromPrivate(keyPrivate)
 
+// encontrar a chave pública pela privada
 const keyLoggedPublic = keyLoggedPrivate.getPublic('hex')
 
 console.log(`chave pública logada~> ${keyLoggedPublic}`)
 
+// verificação se a chave pública está certa
 console.log((keyLoggedPublic === keyPublic) ? true : false)
