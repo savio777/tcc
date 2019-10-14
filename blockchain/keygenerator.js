@@ -7,6 +7,17 @@ const ec = EC('secp256k1')
 // gerador de chaves
 const key = ec.genKeyPair()
 
-console.log('chave publica: ' + key.getPublic('hex') + "\n")
+const keyPublic = key.getPublic('hex')
 
-console.log('chave privada: ' + key.getPrivate('hex'))
+const keyPrivate = key.getPrivate('hex')
+
+console.log(`chave pública~> ${keyPublic}`)
+console.log(`chave privada~> ${keyPrivate}\n`)
+
+const keyLoggedPrivate = ec.keyFromPrivate(keyPrivate)
+
+const keyLoggedPublic = keyLoggedPrivate.getPublic('hex')
+
+console.log(`chave pública logada~> ${keyLoggedPublic}`)
+
+console.log((keyLoggedPublic === keyPublic) ? true : false)
