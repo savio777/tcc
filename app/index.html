@@ -3,20 +3,58 @@
 
 <head>
   <meta charset="utf-8">
-  <title>cartorio blockchain</title>
+  <title>BlockNotary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-  <h3>Sua Chave Pública</h3>
-  <input id="publicKey"><br>
-  <h3>Informação para ser salva</h3>
-  <input id="data">
-  <button id="save">Salvar</button><br>
-  <pre id="testChain"></pre><br>
-  <pre id="chain"></pre>
+  <div class="container">
+    <div class="card-panel deep-purple lighten-4">
+      <h5>BlockNotary</h5>
+    </div>
+    <br>
+    <div class="col s8">
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="publicKey">
+          <label class="active" for="publicKey">Sua Chave Pública</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="privateKey">
+          <label class="active" for="privateKey">Sua Chave Privada</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="address">
+          <label class="active" for="address">Chave Pública da Outra Pessoa</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="amount" step="0.01" min="0.0" type="number">
+          <label class="active" for="amount">Valor</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s8">
+          <input id="description">
+          <label class="active" for="description">Descrição</label>
+        </div>
+      </div>
 
+      <a id="save" class="waves-effect waves-light btn">
+        <i class="material-icons left">enhanced_encryption</i>salvar
+      </a>
+    </div>
+
+
+    <pre id="testChain"></pre><br>
+    <pre id="testKey"></pre><br>
+    <pre id="chain"></pre>
+  </div>
   <script src="bundle.js" charset="utf-8"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
 </body>
 
 </html>
