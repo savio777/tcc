@@ -1,3 +1,8 @@
-dependences:
---save crypto-js
-, elliptic; rode o tests.js
+### **para testar:**
+
+* npm install
+* node tests.js
+
+> **fonte:**
+> 
+> https://github.com/Savjee/SavjeeCoin/
