@@ -10,7 +10,8 @@ module.exports = class Block {
     // hash -> guardar hash desse bloco
     // nonce -> quantidade de zeros no inicio da hash que gera a dificuldade
     // publicKey -> possibilitar o compartilhamento das informações do bloco com segurança 
-    constructor(timestamp, data, publicKey) {
+    constructor(id, timestamp, data, publicKey) {
+	this.index = id
         this.timestamp = timestamp
         this.data = data
         this.previousHash = ''
