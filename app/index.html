@@ -7,52 +7,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
   <div class="container">
-    <div class="card-panel deep-purple lighten-4">
+    <div class="card-panel deep-purple darker-4">
       <h5>BlockNotary</h5>
     </div>
-    <br>
-    <div class="col s8">
+
+    <div id="form" class="col s8">
       <div class="row">
-        <div class="input-field col s4">
-          <input id="publicKey">
+        <div class="input-field col s8">
+          <input id="publicKey" type="text">
           <label class="active" for="publicKey">Sua Chave Pública</label>
-        </div>
-        <div class="input-field col s4">
-          <input id="privateKey">
-          <label class="active" for="privateKey">Sua Chave Privada</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s4">
-          <input id="address">
-          <label class="active" for="address">Chave Pública da Outra Pessoa</label>
-        </div>
-        <div class="input-field col s4">
-          <input id="amount" step="0.01" min="0.0" type="number">
-          <label class="active" for="amount">Valor</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8">
-          <input id="description">
+          <input id="privateKey" type="text">
+          <label class="active" for="privateKey">Sua Chave Privada</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s8">
+          <input id="address" type="text">
+          <label class="active" for="address">Chave Pública da Outra Pessoa</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="amount" step="0.01" min="0.0" type="number">
+          <label class="active" for="amount">Valor</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="description" type="text">
           <label class="active" for="description">Descrição</label>
         </div>
       </div>
 
       <a id="save" class="waves-effect waves-light btn">
-        <i class="material-icons left">enhanced_encryption</i>salvar
+        <i class="material-icons right">enhanced_encryption</i>salvar
       </a>
     </div>
+  </div>
 
+
+  <div class="blocks">
 
     <pre id="testChain"></pre><br>
     <pre id="testKey"></pre><br>
     <pre id="chain"></pre>
+
   </div>
+
   <script src="bundle.js" charset="utf-8"></script>
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
 </body>
