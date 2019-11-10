@@ -37,7 +37,7 @@ module.exports = class Block {
             this.hash = this.calculateHash()
         }
 
-        console.log('hash: ' + this.hash)
+        //console.log('hash: ' + this.hash)
     }
 
 }

@@ -1,7 +1,15 @@
-#form {
+body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  margin-top: 30px;
 }
 
+#form {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.card {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}

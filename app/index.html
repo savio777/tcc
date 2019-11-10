@@ -12,57 +12,54 @@
 
 <body>
   <div class="container">
-    <div class="card-panel deep-purple darker-4">
+    <div class="card-panel blue-grey darken-1">
       <h5>BlockNotary</h5>
     </div>
 
     <div id="form" class="col s8">
-      <div class="row">
-        <div class="input-field col s8">
-          <input id="publicKey" type="text">
-          <label class="active" for="publicKey">Sua Chave Pública</label>
+      <div class="container">
+        <div class="row">
+          <div class="input-field col s8">
+            <input id="publicKey" type="text">
+            <label class="active" for="publicKey">Sua Chave Pública</label>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s8">
-          <input id="privateKey" type="text">
-          <label class="active" for="privateKey">Sua Chave Privada</label>
+        <div class="row">
+          <div class="input-field col s8">
+            <input id="privateKey" type="text">
+            <label class="active" for="privateKey">Sua Chave Privada</label>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s8">
-          <input id="address" type="text">
-          <label class="active" for="address">Chave Pública da Outra Pessoa</label>
+        <div class="row">
+          <div class="input-field col s8">
+            <input id="address" type="text">
+            <label class="active" for="address">Chave Pública da Outra Pessoa</label>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s4">
-          <input id="amount" step="0.01" min="0.0" type="number">
-          <label class="active" for="amount">Valor</label>
+        <div class="row">
+          <div class="input-field col s4">
+            <input id="amount" step="0.01" min="0.0" type="number">
+            <label class="active" for="amount">Valor</label>
+          </div>
+          <div class="input-field col s4">
+            <input id="description" type="text">
+            <label class="active" for="description">Descrição</label>
+          </div>
         </div>
-        <div class="input-field col s4">
-          <input id="description" type="text">
-          <label class="active" for="description">Descrição</label>
-        </div>
-      </div>
 
-      <a id="save" class="waves-effect waves-light btn">
+      </div>
+      <a id="save" class="blue waves-effect waves-light btn">
         <i class="material-icons right">enhanced_encryption</i>salvar
       </a>
+
     </div>
   </div>
 
-
-  <div class="blocks">
-
-    <pre id="testChain"></pre><br>
-    <pre id="testKey"></pre><br>
-    <pre id="chain"></pre>
-
-  </div>
+  <pre id="testChain"></pre><br>
+  <pre id="testKey"></pre><br>
 
   <script src="bundle.js" charset="utf-8"></script>
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>

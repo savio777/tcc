@@ -8,7 +8,12 @@ const ec = EC('secp256k1')
 const Block = require('../blockchain/block')
 const Blockchain = require('../blockchain/blockchain')
 
-const chain = new Blockchain()
+const chainCurrent = new Blockchain()
+
+const col = document.createElement('div')
+col.setAttribute('class', 'col s12 m6')
+
+document.body.appendChild(col)
 
 hub.subscribe('chain').on('data', (data) => {
   const keyPrivate = document.getElementById('privateKey').value
@@ -18,25 +23,70 @@ hub.subscribe('chain').on('data', (data) => {
   const keyLoggedPublic = keyLoggedPrivate.getPublic('hex')
 
   if (keyLoggedPublic === data.publicKey) {
-    chain.addBlock(new Block(
+    chainCurrent.addBlock(new Block(
+      chainCurrent.chain.length,
       new Date(),
       {
         description: data.description,
         address: data.address,
         amount: data.amount
-      }
-      , data.publicKey
+      },
+      data.publicKey
     ))
 
-    document.getElementById('chain').textContent = JSON.stringify(chain, null, 2)
+    const iconArrow = document.createElement('i')
+    iconArrow.setAttribute('class', 'material-icons')
 
-    document.getElementById('testChain').textContent = 'Corrente é válida: ' + chain.isValid()
+    iconArrow.innerText = 'arrow_downward'
 
-    console.log(chain)
+    const newBlock = document.createElement('div')
+    newBlock.setAttribute('class', 'card blue-grey darken-1 white-text')
+
+    const titleBlock = document.createElement('span')
+    titleBlock.setAttribute('class', 'card-title')
+    titleBlock.innerText = `Descrição: ${chainCurrent.getLastBlock().data.description}`
+
+    const hash = document.createElement('p')
+    hash.innerText = `Hash atual: ${chainCurrent.getLastBlock().hash}`
+
+    const previousHash = document.createElement('p')
+    previousHash.innerText = `Chave anterior ${chainCurrent.getLastBlock().previousHash}`
+
+    const publicKey = document.createElement('p')
+    publicKey.innerText = `Chave Primária: ${chainCurrent.getLastBlock().publicKey}`
+
+    const timestamp = document.createElement('p')
+    timestamp.innerText = `Timestamp: ${chainCurrent.getLastBlock().timestamp}`
+
+    newBlock.appendChild(titleBlock)
+    newBlock.appendChild(hash)
+    newBlock.appendChild(previousHash)
+    newBlock.appendChild(publicKey)
+    newBlock.appendChild(timestamp)
+
+
+    if (chainCurrent.getLastBlock().data.description) {
+      const adress = document.createElement('p')
+      adress.innerText = `Chave do Recebedor: ${chainCurrent.getLastBlock().data.address}`
+
+      const amount = document.createElement('p')
+      amount.innerText = `Valor: ${chainCurrent.getLastBlock().data.amount}`
+
+      newBlock.appendChild(adress)
+      newBlock.appendChild(amount)
+    }
+
+    col.appendChild(newBlock)
+    col.appendChild(iconArrow)
+
+    document.getElementById('testChain').innerText =
+      `Corrente é válida: ${chainCurrent.isValid()}`
+
+    document.getElementById('testKey').innerText = (keyLoggedPublic === data.publicKey) ?
+      `Chave é válida: ${true}` : `Chave é válida: ${false}`
+
+    console.log(chainCurrent)
   }
-
-  document.getElementById('testKey').textContent = (keyLoggedPublic === data.publicKey) ?
-    `Chave é válida: ${true}` : `Chave é válida: ${false}`
 })
 
 document.getElementById('save').addEventListener('click', () => {
