@@ -79,7 +79,7 @@ hub.subscribe('chain').on('data', (data) => {
     document.getElementById('testKey').innerText = (keyLoggedPublic === data.publicKey) ?
       `Chave é válida: ${true}` : `Chave é válida: ${false}`
 
-    console.log(chainCurrent)
+    console.log(JSON.stringify(chainCurrent, null, 2))
   } else {
     alert('erro na autenticação ou campo em branco')
   }
