@@ -42,7 +42,7 @@ hub.subscribe('chain').on('data', (data) => {
     iconArrow.innerText = 'arrow_downward'
 
     const newBlock = document.createElement('div')
-    newBlock.setAttribute('class', 'card black white-text center')
+    newBlock.setAttribute('class', 'card purple darken-4 white-text center')
 
     const titleBlock = document.createElement('span')
     titleBlock.setAttribute('class', 'card-title')
