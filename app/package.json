@@ -1,7 +1,7 @@
 {
   "name": "signalhub-enviar-p2p",
   "version": "1.0.0",
-  "description": "signalhub para enviar dados as pontas",
+  "description": "simulação de um cartório com blockchain",
   "main": "index.js",
   "scripts": {
     "start": "budo index.js:bundle.js",
@@ -15,5 +15,7 @@
   },
   "dependencies": {
     "signalhub": "^4.9.0"
-  }
+  },
+  "author": "savio",
+  "license": "MIT"
 }
