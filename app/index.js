@@ -11,7 +11,7 @@ const Blockchain = require('../blockchain/blockchain')
 const chainCurrent = new Blockchain()
 
 const col = document.createElement('div')
-col.setAttribute('class', 'col s12 m6')
+col.setAttribute('class', 'col s12 m6 center')
 
 document.body.appendChild(col)
 
@@ -22,17 +22,19 @@ hub.subscribe('chain').on('data', (data) => {
 
   const keyLoggedPublic = keyLoggedPrivate.getPublic('hex')
 
-  if (keyLoggedPublic === data.publicKey) {
+  if ((keyLoggedPublic === data.publicKey) && (data.description && data.address)) {
     chainCurrent.addBlock(new Block(
       chainCurrent.chain.length,
       new Date(),
       {
         description: data.description,
-        address: data.address,
-        amount: data.amount
+        address: data.address
       },
       data.publicKey
     ))
+
+    const divider = document.createElement('div')
+    divider.setAttribute('class', 'divider')
 
     const iconArrow = document.createElement('i')
     iconArrow.setAttribute('class', 'material-icons')
@@ -40,7 +42,7 @@ hub.subscribe('chain').on('data', (data) => {
     iconArrow.innerText = 'arrow_downward'
 
     const newBlock = document.createElement('div')
-    newBlock.setAttribute('class', 'card blue-grey darken-1 white-text')
+    newBlock.setAttribute('class', 'card black white-text center')
 
     const titleBlock = document.createElement('span')
     titleBlock.setAttribute('class', 'card-title')
@@ -58,24 +60,16 @@ hub.subscribe('chain').on('data', (data) => {
     const timestamp = document.createElement('p')
     timestamp.innerText = `Timestamp: ${chainCurrent.getLastBlock().timestamp}`
 
+    const adress = document.createElement('p')
+    adress.innerText = `Chave da outra parte: ${chainCurrent.getLastBlock().data.address}`
+
     newBlock.appendChild(titleBlock)
+    newBlock.appendChild(divider)
     newBlock.appendChild(hash)
     newBlock.appendChild(previousHash)
     newBlock.appendChild(publicKey)
     newBlock.appendChild(timestamp)
-
-
-    if (chainCurrent.getLastBlock().data.description) {
-      const adress = document.createElement('p')
-      adress.innerText = `Chave do Recebedor: ${chainCurrent.getLastBlock().data.address}`
-
-      const amount = document.createElement('p')
-      amount.innerText = `Valor: ${chainCurrent.getLastBlock().data.amount}`
-
-      newBlock.appendChild(adress)
-      newBlock.appendChild(amount)
-    }
-
+    newBlock.appendChild(adress)
     col.appendChild(newBlock)
     col.appendChild(iconArrow)
 
@@ -86,6 +80,8 @@ hub.subscribe('chain').on('data', (data) => {
       `Chave é válida: ${true}` : `Chave é válida: ${false}`
 
     console.log(chainCurrent)
+  } else {
+    alert('erro na autenticação ou campo em branco')
   }
 })
 
@@ -93,7 +89,6 @@ document.getElementById('save').addEventListener('click', () => {
   const data = {
     description: document.getElementById('description').value,
     address: document.getElementById('address').value,
-    amount: document.getElementById('amount').value,
     publicKey: document.getElementById('publicKey').value
   }
 

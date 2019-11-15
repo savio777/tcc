@@ -11,52 +11,48 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="card-panel blue-grey darken-1">
+  <div class="container center">
+    <div class="card-panel black white-text">
       <h5>BlockNotary</h5>
-    </div>
-
-    <div id="form" class="col s8">
-      <div class="container">
-        <div class="row">
-          <div class="input-field col s8">
-            <input id="publicKey" type="text">
-            <label class="active" for="publicKey">Sua Chave Pública</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s8">
-            <input id="privateKey" type="text">
-            <label class="active" for="privateKey">Sua Chave Privada</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s8">
-            <input id="address" type="text">
-            <label class="active" for="address">Chave Pública da Outra Pessoa</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s4">
-            <input id="amount" step="0.01" min="0.0" type="number">
-            <label class="active" for="amount">Valor</label>
-          </div>
-          <div class="input-field col s4">
-            <input id="description" type="text">
-            <label class="active" for="description">Descrição</label>
-          </div>
-        </div>
-
-      </div>
-      <a id="save" class="blue waves-effect waves-light btn">
-        <i class="material-icons right">enhanced_encryption</i>salvar
-      </a>
-
     </div>
   </div>
 
-  <pre id="testChain"></pre><br>
-  <pre id="testKey"></pre><br>
+  <div id="form" class="col s10">
+    <div class="container">
+      <div class="row">
+        <div class="input-field col s10">
+          <input id="publicKey" type="text">
+          <label class="active" for="publicKey">Sua Chave Pública</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s10">
+          <input id="privateKey" type="text">
+          <label class="active" for="privateKey">Sua Chave Privada</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s10">
+          <input id="address" type="text">
+          <label class="active" for="address">Chave Pública da Outra Pessoa</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s10">
+          <input id="description" type="text">
+          <label class="active" for="description">Descrição</label>
+        </div>
+      </div>
+      <div class="row">
+        <a id="save" class="black waves-effect waves-light btn">
+          <i class="material-icons right">enhanced_encryption</i>salvar
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <pre id="testChain"></pre>
+  <pre id="testKey"></pre>
 
   <script src="bundle.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
