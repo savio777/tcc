@@ -11,7 +11,7 @@ const Blockchain = require('../blockchain/blockchain')
 const chainCurrent = new Blockchain()
 
 const col = document.createElement('div')
-col.setAttribute('class', 'col s12 m6 center')
+col.setAttribute('class', 'col s12 m6')
 
 document.body.appendChild(col)
 
@@ -33,6 +33,9 @@ hub.subscribe('chain').on('data', (data) => {
       data.publicKey
     ))
 
+    const container = document.createElement('div')
+    container.setAttribute('class', 'container')
+
     const divider = document.createElement('div')
     divider.setAttribute('class', 'divider')
 
@@ -42,7 +45,10 @@ hub.subscribe('chain').on('data', (data) => {
     iconArrow.innerText = 'arrow_downward'
 
     const newBlock = document.createElement('div')
-    newBlock.setAttribute('class', 'card purple darken-4 white-text center')
+    newBlock.setAttribute('class', 'card purple darken-4')
+
+    const contentBlock = document.createElement('div')
+    contentBlock.setAttribute('class', 'card-content white-text')
 
     const titleBlock = document.createElement('span')
     titleBlock.setAttribute('class', 'card-title')
@@ -63,15 +69,18 @@ hub.subscribe('chain').on('data', (data) => {
     const adress = document.createElement('p')
     adress.innerText = `Chave da outra parte: ${chainCurrent.getLastBlock().data.address}`
 
-    newBlock.appendChild(titleBlock)
-    newBlock.appendChild(divider)
-    newBlock.appendChild(hash)
-    newBlock.appendChild(previousHash)
-    newBlock.appendChild(publicKey)
-    newBlock.appendChild(timestamp)
-    newBlock.appendChild(adress)
+
+    contentBlock.appendChild(titleBlock)
+    contentBlock.appendChild(divider)
+    contentBlock.appendChild(hash)
+    contentBlock.appendChild(previousHash)
+    contentBlock.appendChild(publicKey)
+    contentBlock.appendChild(timestamp)
+    contentBlock.appendChild(adress)
+    newBlock.appendChild(contentBlock)
     col.appendChild(newBlock)
-    col.appendChild(iconArrow)
+    container.appendChild(iconArrow)
+    col.appendChild(container)
 
     document.getElementById('testChain').innerText =
       `Corrente é válida: ${chainCurrent.isValid()}`
