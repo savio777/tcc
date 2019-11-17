@@ -10,14 +10,14 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body class="blue-grey darken-4">
   <div class="container">
     <div class="card-panel purple darken-4 white-text">
       <div class="container">
         <div class="container">
           <div class="container">
             <div class="container">
-              <h5>BlockNotary</h5>
+              <h4>BlockNotary</h4>
             </div>
           </div>
         </div>
@@ -28,27 +28,59 @@
   <div id="form" class="col s10">
     <div class="container">
       <div class="row">
-        <div class="input-field col s10">
-          <input id="publicKey" type="text">
-          <label class="active" for="publicKey">Sua Chave Pública</label>
+        <div class="container">
+          <div class="input-field col s10">
+            <input class="white-text" id="sellerPublicKey" type="text">
+            <label class="white-text active" for="sellerPublicKey">Sua Chave Pública</label>
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s10">
-          <input id="privateKey" type="text">
-          <label class="active" for="privateKey">Sua Chave Privada</label>
+        <div class="container">
+          <div class="input-field col s10">
+            <input class="white-text" id="sellerPrivateKey" type="text">
+            <label class="white-text active" for="sellerPrivateKey">Sua Chave Privada</label>
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s10">
-          <input id="address" type="text">
-          <label class="active" for="address">Chave Pública da Outra Pessoa</label>
+        <div class="container">
+          <div class="input-field col s10">
+            <input class="white-text" id="sellerCpf" type="text" maxlength="14">
+            <label class="white-text active" for="sellerCpf">Seu CPF</label>
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s10">
-          <input id="description" type="text">
-          <label class="active" for="description">Descrição</label>
+        <div class="container">
+          <div class="input-field col s10">
+            <input class="white-text" id="sellerCrv" type="number">
+            <label class="white-text active" for="sellerCrv">CRV do carro</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="input-field col s10">
+            <input class="white-text" id="value" type="number" min="0.01" step="0.01">
+            <label class="white-text active" for="value">Valor</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="input-field col s10">
+            <input class="white-text" id="purchaserPublicKey" type="text">
+            <label class="white-text active" for="purchaserPublicKey">Chave Pública da Outra Pessoa</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="input-field col s10">
+            <input class="white-text" id="purchaserCpf" type="text" maxlength="14">
+            <label class="white-text active" for="purchaserCpf">Cpf do comprador</label>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -62,6 +94,7 @@
   <pre id="testChain"></pre>
   <pre id="testKey"></pre>
 
+  <script src="./masks.js"></script>
   <script src="bundle.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
