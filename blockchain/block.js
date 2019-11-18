@@ -9,15 +9,13 @@ module.exports = class Block {
     // previousHash -> guardar hash anterior a esse bloco, para fazer a ligaçõa entre os blocos 
     // hash -> guardar hash desse bloco
     // nonce -> quantidade de zeros no inicio da hash que gera a dificuldade
-    // publicKey -> possibilitar o compartilhamento das informações do bloco com segurança 
-    constructor(id, timestamp, data, publicKey) {
-	this.index = id
+    constructor(id, timestamp, data) {
+        this.index = id
         this.timestamp = timestamp
         this.data = data
         this.previousHash = ''
         this.hash = this.calculateHash()
         this.nonce = 0
-        this.publicKey = publicKey
     }
 
     // função para retornar calculo da hash desse bloco, utilizando sha-256, para validação dos dados
