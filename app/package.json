@@ -15,7 +15,5 @@
   },
   "dependencies": {
     "signalhub": "^4.9.0"
-  },
-  "author": "savio",
-  "license": "MIT"
+  }
 }
