@@ -16,21 +16,18 @@ document.getElementById('save').addEventListener('click', () => {
   const data = {
     sellerPublicKey: document.getElementById('sellerPublicKey').value,
     sellerPrivateKey: document.getElementById('sellerPrivateKey').value,
-    sellerCpf: document.getElementById('sellerCpf').value,
     sellerCrv: document.getElementById('sellerCrv').value,
     value: document.getElementById('value').value,
-    purchaserPublicKey: document.getElementById('purchaserPublicKey').value,
-    purchaserCpf: document.getElementById('purchaserCpf').value
+    purchaserPublicKey: document.getElementById('purchaserPublicKey').value
   }
+
   hub.broadcast('chain', data)
 
   document.getElementById('sellerPublicKey').value = ''
   document.getElementById('sellerPrivateKey').value = ''
-  document.getElementById('sellerCpf').value = ''
   document.getElementById('sellerCrv').value = ''
   document.getElementById('value').value = ''
   document.getElementById('purchaserPublicKey').value = ''
-  document.getElementById('purchaserCpf').value = ''
 })
 
 const col = document.createElement('div')
@@ -46,8 +43,7 @@ hub.subscribe('chain').on('data', (data) => {
 
   if (
     (keyLoggedPublic === data.sellerPublicKey) &&
-    (data.value && data.purchaserPublicKey && data.sellerCpf &&
-      data.sellerCrv && data.purchaserCpf)
+    (data.value && data.purchaserPublicKey && data.sellerCrv)
   ) {
     chainCurrent.addBlock(new Block(
       chainCurrent.chain.length,
@@ -55,10 +51,8 @@ hub.subscribe('chain').on('data', (data) => {
       {
         value: data.value,
         sellerPublicKey: data.sellerPublicKey,
-        sellerCpf: data.sellerCpf,
         sellerCrv: data.sellerCrv,
         purchaserPublicKey: data.purchaserPublicKey,
-        purchaserCpf: data.purchaserCpf
       }
     ))
 
@@ -97,9 +91,6 @@ hub.subscribe('chain').on('data', (data) => {
     sellerPublicKey.innerText =
       `Chave Primária: ${chainCurrent.getLastBlock().data.sellerPublicKey}`
 
-    const sellerCpf = document.createElement('p')
-    sellerCpf.innerText = `Cpf do vendedor: ${chainCurrent.getLastBlock().data.sellerCpf}`
-
     const timestamp = document.createElement('p')
     timestamp.innerText = `Timestamp: ${chainCurrent.getLastBlock().timestamp}`
 
@@ -113,20 +104,15 @@ hub.subscribe('chain').on('data', (data) => {
     purchaserPublicKey.innerText =
       `Chave do comprador: ${chainCurrent.getLastBlock().data.purchaserPublicKey}`
 
-    const purchaserCpf = document.createElement('p')
-    purchaserCpf.innerText =
-      `Cpf do comprador: ${chainCurrent.getLastBlock().data.purchaserCpf}`
 
     contentBlock.appendChild(hashTitle)
     contentBlock.appendChild(divider)
     contentBlock.appendChild(previousHash)
     contentBlock.appendChild(sellerPublicKey)
-    contentBlock.appendChild(sellerCpf)
     contentBlock.appendChild(timestamp)
     contentBlock.appendChild(value)
     contentBlock.appendChild(sellerCrv)
     contentBlock.appendChild(purchaserPublicKey)
-    contentBlock.appendChild(purchaserCpf)
     newBlock.appendChild(contentBlock)
     col.appendChild(newBlock)
     container.appendChild(iconArrow)
