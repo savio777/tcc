@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 
-<body class="blue-grey darken-4">
+<body class="blue-grey lighten-4">
   <div class="container">
     <div class="card-panel purple darken-4 white-text">
       <div class="container">
@@ -30,56 +30,40 @@
       <div class="row">
         <div class="container">
           <div class="input-field col s10">
-            <input class="white-text" id="sellerPublicKey" type="text">
-            <label class="white-text active" for="sellerPublicKey">Sua Chave Pública</label>
+            <input id="sellerPublicKey" type="text">
+            <label class="black-text active" for="sellerPublicKey">Sua Chave Pública</label>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="container">
           <div class="input-field col s10">
-            <input class="white-text" id="sellerPrivateKey" type="text">
-            <label class="white-text active" for="sellerPrivateKey">Sua Chave Privada</label>
+            <input id="sellerPrivateKey" type="text">
+            <label class="black-text active" for="sellerPrivateKey">Sua Chave Privada</label>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="container">
           <div class="input-field col s10">
-            <input class="white-text" id="sellerCpf" type="text" maxlength="14">
-            <label class="white-text active" for="sellerCpf">Seu CPF</label>
+            <input id="sellerCrv" type="number">
+            <label class="black-text active" for="sellerCrv">CRV do carro</label>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="container">
           <div class="input-field col s10">
-            <input class="white-text" id="sellerCrv" type="number">
-            <label class="white-text active" for="sellerCrv">CRV do carro</label>
+            <input id="value" type="number" min="0.01" step="0.01">
+            <label class="black-text active" for="value">Valor</label>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="container">
           <div class="input-field col s10">
-            <input class="white-text" id="value" type="number" min="0.01" step="0.01">
-            <label class="white-text active" for="value">Valor</label>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="container">
-          <div class="input-field col s10">
-            <input class="white-text" id="purchaserPublicKey" type="text">
-            <label class="white-text active" for="purchaserPublicKey">Chave Pública da Outra Pessoa</label>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="container">
-          <div class="input-field col s10">
-            <input class="white-text" id="purchaserCpf" type="text" maxlength="14">
-            <label class="white-text active" for="purchaserCpf">Cpf do comprador</label>
+            <input id="purchaserPublicKey" type="text">
+            <label class="black-text active" for="purchaserPublicKey">Chave Pública da Outra Pessoa</label>
           </div>
         </div>
       </div>
