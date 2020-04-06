@@ -1,5 +1,8 @@
 # Trabalho de conclusão do curso de Análise e Desenvolvimento de Sistemas
 
+#### Observações
+>Testado somente em ambiente Linux;
+>Necessário NodeJs, navegador e a usuário com acesso ao NPM e NodeJs;
 
 ### **executar:**
 * cd blockchain
